@@ -8,4 +8,5 @@ app = Flask(__name__)
 @app.route("/")
 def hello_world():
     secret = os.getenv("SECRET_VARIABLE", "none")
+    print('Github')
     return f"<p>Hello, World! with secret {secret}</p>"
