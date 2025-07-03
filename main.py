@@ -14,4 +14,4 @@ def hello_world():
 if __name__ == "__main__":
     import bjoern
 
-    bjoern.run(app, "0.0.0.0", 8000)
+    bjoern.run(app, "127.0.0.1", 8000)
