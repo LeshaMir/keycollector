@@ -14,9 +14,6 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Add phrase to .env
-        run: |
-          ssh rick@${{ secrets.IP }} <<EOF
-          echo "SECRET_VARIABLE=$ITS_SECRET_PHRASE" >> /home/rick/projects/keycollector/.env
-          EOF
+        run: ssh rick@${{ secrets.IP }} "echo 'SECRET_VARIABLE=$ITS_SECRET_PHRASE' >> /home/rick/projects/keycollector/.env"
         env:
           ITS_SECRET_PHRASE: ${{ secrets.ITS_SECRET_PHRASE }}
