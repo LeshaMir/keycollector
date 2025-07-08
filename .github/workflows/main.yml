@@ -1,0 +1,24 @@
+name: Keycollector
+
+on:
+  push:
+    branches:
+       - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Show secret phrase
+      run: echo "Secret is: ${{ secrets.ITS_SECRET_PHRASE }}"
+
+    - name: Add phrase to .env
+      run: |
+            ssh rick@${{ secrets.IP }} <<EOF
+              echo "SECRET_VARIABLE=${{ secrets.SECRET_KEY }}" >> /home/rick/projects/keycollector/.env
+            EOF
+      
