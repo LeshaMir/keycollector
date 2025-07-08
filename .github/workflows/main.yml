@@ -20,9 +20,9 @@ jobs:
 
     - name: Add phrase to .env
       run: |
-            ssh rick@${{ secrets.IP }} <<EOF
-              echo "SECRET_VARIABLE=${{ secrets.ITS_SECRET_PHRASE }}" >> /home/rick/projects/keycollector/.env
-            EOF
+        ssh rick@${{ secrets.IP }} <<EOF
+        echo "SECRET_VARIABLE=${{ secrets.ITS_SECRET_PHRASE }}" >> /home/rick/projects/keycollector/.env
+        EOF
       env:
         ITS_SECRET_PHRASE: ${{ secrets.ITS_SECRET_PHRASE }}
       
