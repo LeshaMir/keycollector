@@ -13,11 +13,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Show secret phrase
-        run: echo "Secret is: $ITS_SECRET_PHRASE"
-        env:
-          ITS_SECRET_PHRASE: ${{ secrets.ITS_SECRET_PHRASE }}
-
       - name: Add phrase to .env
         run: |
           ssh rick@${{ secrets.IP }} <<EOF
