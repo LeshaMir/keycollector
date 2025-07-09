@@ -33,5 +33,5 @@ jobs:
           SUPER_LOCAL: "SUPERLOCAL VAR"
 
       - name: show secrets IP
-        run: echo "${{ secrets.IP }}"
+        run: echo "${{ secrets.SERVER_IP }}"
           
