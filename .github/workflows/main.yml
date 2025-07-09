@@ -1,4 +1,6 @@
 name: Keycollector
+env:
+  PACKAGE_NAME: "flask-ci-ver-${{ github.sha }}"
 
 on:
   push:
@@ -8,15 +10,24 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      VAR: "This is job level"
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
       
       - name: Check variables
-        run: echo "IP = ${{ secrets.IP }}"
-        
-      - name: Add phrase to .env
-        run: ssh rick@${{ secrets.IP }} "echo 'SECRET_VARIABLE=${{ secrets.ITS_SECRET_PHRASE }}' >> /home/rick/projects/keycollector/.env"
+        run: |
+          echo "Hello Message one"
+          echo "PACKAGE_NAME = ${{ env.PACKAGE_NAME }}"
+
+      - name: List current folder
+        run: ls -la
+
+      - name: Show Env var
+        run: |
+          echo "VAR: ${{ env.VAR }}"
+          echo "SUPERLOCAL: $SUPER_LOCAL"
         env:
-          ITS_SECRET_PHRASE: ${{ secrets.ITS_SECRET_PHRASE }}
+          SUPER_LOCAL: "SUPERLOCAL VAR"
