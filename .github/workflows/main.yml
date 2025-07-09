@@ -12,7 +12,10 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-
+      
+      - name: Check variables
+        run: echo "IP = ${{ secrets.IP }}"
+        
       - name: Add phrase to .env
         run: ssh rick@${{ secrets.IP }} "echo 'SECRET_VARIABLE=${{ secrets.ITS_SECRET_PHRASE }}' >> /home/rick/projects/keycollector/.env"
         env:
