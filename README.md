@@ -1,3 +1,3 @@
 # keycollector
 
-<img src="https://github.com/LeshaMir/keycollector/actions/workflows/Keycollector/badge.svg" >
+<img src="https://github.com/LeshaMir/keycollector/workflows/Keycollector/badge.svg" >
