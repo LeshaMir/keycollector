@@ -34,4 +34,13 @@ jobs:
 
       - name: show secrets IP
         run: echo "${{ secrets.SERVER_IP }}"
-          
+
+      - name: ssh setup
+        run: |
+             mkdir -p ~/.ssh
+             echo "${{ secrets.SSH_PRIVATE_KEY }}" >> ~/.ssh/id_rsa
+             chmod 600 ~/.ssh/id_rsa
+             ssh-keyscan -H ${{ secrets.SERVER_IP }} >> ~/.ssh/known_hosts
+
+      - name: ssh and list files
+        run: ssh rick@${{ secrets.SERVER_IP }} "ls -la /home/rick"
