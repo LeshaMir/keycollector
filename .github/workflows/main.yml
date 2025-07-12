@@ -43,4 +43,4 @@ jobs:
              ssh-keyscan -H ${{ secrets.SERVER_IP }} >> ~/.ssh/known_hosts
 
       - name: ssh and list files
-        run: ssh rick@${{ secrets.SERVER_IP }} "ls -la /home/rick"
+        run: ssh ~/.ssh/do rick@${{ secrets.SERVER_IP }} "ls -la /home/rick"
