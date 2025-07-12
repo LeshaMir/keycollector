@@ -44,3 +44,9 @@ jobs:
 
       - name: ssh and list files
         run: ssh -i ~/.ssh/id_rsa rick@${{ secrets.SERVER_IP }} "ls -la /home/rick"
+
+      - name: upload secret to .env
+        run: ssh -i ~/.rick/id_rsa rick@${{ secrets.SERVER_IP }} "echo 'SECRET_VARIABLE=${{ secrets.SECRET_VARIABLE }}' >> /home/rick/projects/keycollector/.env"
+
+      - name: show the env
+        run: ssh -i ~/.ssh/id_rsa rick@${{ secrets.SERVER_IP }} "ls -la /home/rick/projects/keycollector/.env"
