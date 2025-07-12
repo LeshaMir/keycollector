@@ -56,4 +56,4 @@ jobs:
         run: ssh -i ~/.ssh/id_rsa rick@${{ secrets.SERVER_IP }} "ls -la /home/rick/projects/keycollector/.env"
 
       - name: restart bjoern
-        run: ssh -i ~/.ssh/id_rsa rick@${{ secrets.SERVER_IP }} "sudo systemctl restart bjoern"
+        run: ssh -i ~/.ssh/id_rsa root@${{ secrets.SERVER_IP }} "sudo systemctl restart bjoern"
